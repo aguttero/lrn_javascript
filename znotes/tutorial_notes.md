@@ -108,6 +108,79 @@ myArray.includes("d"); > true (boolean)
 myArray.push("f"); > add to the end of the array
 myArray.pop(); > removes the last element of the array
 
+## DOM
+### JS script position in html page
+* js code always has to load after the html elements that it has to interact with
+Otherwise it tries to modify an element that does not exist
+* place just before </body> as general best practice
+
+#### JS healt-check
+add just before </body>
+<script src="index.js" charset="utf-8"></script>
+in index.js > alert("health-check ok");
+
+### console commands // DOM navigation and reference
+document; > shows the doc tree
+document.firstElementChild;
+document.lastChild.firstElementChild; // and so on, multiple options
+- in browser dev tool > 'Elements' > right click > copy JS path
+i.e: document.querySelector("body > ul > li:nth-child(2)");
+
+* js selector.click() > perfirms click action
+i.e: document.querySelector("body > input[type=checkbox]").click();
+
+### Property getter and setter & Methods
+* get:
+car.color; > returns the value of the color property
+
+* set:
+document.querySelector("body > ul > li:nth-child(3)").innerHTML = "Tercero";
+car.color = "blue"; > sets the value of the property
+car.nunberOfDoors = "0";
+
+* method:
+* car.drive(); > calls a method
+
+#### get selectors
+document.getElements (plural > returns an array, not a single element)
+- getElementsByTagName("li")[];
+- getElementsByClassName("[class name]");
+
+- document.getElementById("id") (singular > 'id' are unique)
+- ie: document.getElementById("title").innerHTML = "Good Bye"; (si hay html tags dentro del h1, las trae)
+- ie: document.getElementById("title").textContent = "Good Bye";
+
+- document.querySelector > returns single item
+- allows to mix Tag + id + class +  positional
+- also uses the CSS type of selection (#list a) anchor tag, inside a #list id
+
+- document.querySelectorAll > array
+
+#### css style manipulation example
+- document.querySelector("button").classList.add("invisible");
+- document.querySelector("button").classList.remove("invisible");
+- document.querySelector("button").classList.toggle("invisible");
+
+
+#### element content manipulation example:
+- document.getElementById("title").innerHTML = "Good Bye"; (si hay html tags dentro del h1, las trae)
+- document.getElementById("title").textContent = "Good Bye";
+
+#### element attribute manipulation example:
+- document.querySelector("a");
+- document.querySelector("a").attributes;
+- document.querySelector("a").getattribute("href");
+- document.querySelector("a").setattribute("href","https://new.url.example");
+
+
+
+## Best Practice - WebSite Concern separation
+* Css -> Styling
+* HTML -> Content / Structure
+* JS -> Behaviour
+
+
+
 ## UI inspiration 2026 08
 https://www.uidesigndaily.com/
 Free open source UI Resources

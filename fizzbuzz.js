@@ -3,7 +3,6 @@ var n = Math.random();
 n = Math.floor(n * 100) + 1;
 console.log(n);
 
-
 // fizzBuzz with arrays
 var output = [];
 
@@ -33,10 +32,23 @@ function fizzBuzz2() {
     output.push(result);
     counter++;
   }
-    console.log(output);
+  console.log(output);
 }
 
 fizzBuzz2();
+
+// fizzBuzz2 with for loop
+var output = [];
+
+function fizzBuzz3() {
+  for (counter = 1; counter <= 100; counter++) {
+    result = fizBuzzCheck(counter);
+    output.push(result);
+  }
+  console.log(output);
+}
+
+fizzBuzz3();
 
 // divisible by 3 and 5 > fizzbuzz to console log
 function fizBuzzLog(number) {
