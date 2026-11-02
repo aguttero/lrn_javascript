@@ -172,7 +172,62 @@ document.getElements (plural > returns an array, not a single element)
 - document.querySelector("a").getattribute("href");
 - document.querySelector("a").setattribute("href","https://new.url.example");
 
+## event listener
+addEventListener (event, function);
+* example: click inspect over an element in a browser (gets selected as $0)
+$0.addEventListener("click", function () { // ZAG: this is anonymus function
+  console.log("I got clicked");
+});
+// ZAG is the same as this with a named function:
+$0.addEventListener("click",  respondToClick);
+function respondToClick() {
+  console.log("I got clicked");
+}
 
+### this and switch selectors
+this > see code drums_01.js
+switch (variable){
+  case "input1":
+    do something;
+   break;
+  case "imput2":
+    do another thing;
+   break;
+   default:
+    do the default thing;
+}
+
+## passing a function as parameter. Calculator example:
+```js
+function add (num1, num2) {
+ return num1 + num2; 
+}
+
+function multiply (num1, num2) {
+ return num1 * num2; 
+}
+
+function calculator (num1, num2, operator) {
+ return operator(num1,num2); 
+}
+// call the function:
+calculator(3,2,add);
+```
+
+## debugger
+Simple debugger mode:
+in console:
+debugger; (shift + Enter)
+input function call; (enter)
+click on icons in the debugger panel to step forward
+
+## play a sound
+```js
+var audio = new Audio('audio_file.mp3');
+audio.play();
+```
+
+## Objects
 
 ## Best Practice - WebSite Concern separation
 * Css -> Styling
