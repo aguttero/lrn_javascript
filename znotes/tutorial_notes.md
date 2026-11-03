@@ -228,6 +228,94 @@ audio.play();
 ```
 
 ## Objects
+### declare:
+var bellboy1 = {
+name: "Timmy",
+age: 19,
+languages: ["French", "English"]
+}
+* access:
+alert("Hello, my name is: "+ bellboy1.name);
+
+### constructor function (starts with Capital Letter) 
+* constructor declaration (name needs to be capitalized )
+function BellBoy (name, age, languages){
+this.name = name;
+this.age = age;
+this.languages = languages;
+}
+
+* constructor use:
+var bellBoy1 = new BellBoy ("Timmy", 19, ["French", "English"]);
+
+
+### methods
+* declare in object:
+var bellboy1 = {
+name: "Timmy",
+age: 19,
+languages: ["French", "English"]
+moveSuitecase: function () {
+  alert("May I take your suitecase?");
+  pickUpSuitcase();
+  move();
+  }
+}
+* invoke: bellBoy1.moveSuitcase();
+
+* declare in constructor:
+function BellBoy (name, age, languages){
+  this.name = name;
+  this.age = age;
+  this.languages = languages;
+  this.moveSuitecase = function () {
+    alert("May I take your suitecase?");
+    pickUpSuitcase();
+    move();
+  }
+}
+
+## Call back in the jkeypress example
+https://www.udemy.com/course/the-complete-web-development-bootcamp/learn/lecture/12384168#overview
+```js
+document.addEventListener("keydown", respondToKey(event));
+
+// This is the call back function
+// will know data related to the event once the event happens
+// event paramenter can have the name of your choice
+// usually called event, evt, evnt, e..
+function respondToKey(event){
+  console.log("key pressed");
+  console.log(event);
+}
+```
+
+## jQuery
+https://api.jquery.com/
+https://jquery.com/download/
+https://releases.jquery.com/
+Google CDN
+https://developers.google.com/speed/libraries#jquery
+download or use a CDN
+* Allows to shorten the selectors:
+- ie: document.querySelector("h1") > jQuery("h1") > $("h1");
+- 
+**Place before call to local index.js script**
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+### safeguard function to wait for the cdn library to load:
+* use when <script jQuery CDN> is loaded in the <head> section of the HTML
+* if jQuery CDN script is called at </body> don't need the .ready callback
+/// callback function... once the document is ready it calls the anonymus function
+```js
+$(document).ready(function() {
+  $("h1").css("color", "red");
+});
+```
+
+## Minify js or css files
+www.minify.org
+
 
 ## Best Practice - WebSite Concern separation
 * Css -> Styling
