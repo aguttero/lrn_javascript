@@ -1,4 +1,5 @@
 # JS Tutorial Udemy Complete Full Stack Web Dev Bootcamp
+# FrontEnd JavaScript
 ## browser console tricks
 - opt + cmd + i > open dev tools
 - Sources > left nav bar '>>' Snippets (to write small scripts) > + New snippet > code lines
@@ -299,7 +300,7 @@ https://developers.google.com/speed/libraries#jquery
 download or use a CDN
 * Allows to shorten the selectors:
 - ie: document.querySelector("h1") > jQuery("h1") > $("h1");
-- 
+- Selectors work similar to CSS selector 
 **Place before call to local index.js script**
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
@@ -313,17 +314,106 @@ $(document).ready(function() {
 });
 ```
 
+### consulta get current values con .css method
+ie: $("h1").css("color"); consoloe.log($("h1").css("color"));
+ie: 
+
+### set value con .css method
+ie: $("h1).css("color", "new-color"); 
+Best Practice: separate concenrs. Create class in CSS
+ie:
+```css
+.big-title{
+    font-size: 10rem;
+    color: yellow;
+    font-family: cursive;
+}
+```
+ie: $("h1").addClass("big-title");
+ie: $("h1").removeClass("big-title");
+
+* to include/remove several classes:
+ie: $("h1").addClass("big-title class-2 class-3");
+
+* to aks if it has a class:
+ie: $("h1").hasClass("big-title"); > boolean
+
+### set value in html content
+ie: $("h1").text("Bye");
+innerHTML becomes .html("new content");
+ie: $("button").text("Don't Click"); (selects all buttons)
+
+### get and set attributes (href, src)
+get:
+ie: $("img").attr("src");console.log($("img").attr("src"));
+ie: $("h1").attr("class");
+set:
+ie: $("a").attr("href", "https://new.href");
+
+### event listeners
+ie: $("h1").click(function(){call back function});
+ie: $("h1").click(function(){$("h1").css("color", "purple");});
+ie: $("input").keydown(function(event){console.log(event.key);});
+ie: $("input").keydown(function(event){$("h1").text(event.key);});
+
+#### adding event listeners to a group of items
+ie: $("button").click(function(){$("h1").css("color", "purple");});
+ * keyboards like in drums example: (add event listener to whole html)
+ie: $("body").keydown(function(event){console.log(event.key);});
+ie: $(document).keydown(function(event){console.log(event.key);});
+
+ #### using on
+ ie: $("h1").on("mouseover",function(){$("h1").css("color", "purple");} );
+ ie: $("h1").on("any-event",function(){$("h1").css("color", "purple");} );
+  
+### adding or removing elements
+* adding:
+ie: $("h1").before("<button>New</button>"); adds before <h1>
+ie: $("h1").after("<button>New</button>"); adds after </h1>
+$("h1").prepend() > adds just after the opening <h1>
+$("h1").append() ; adds just before the closing </h1>
+
+### animations
+https://api.jquery.com/category/effects/
+$("button").on("click", function () {$("h1").hide();});
+$("h1").show();
+$("h1").toggle();
+$("h1").fadeout();
+$("h1").fadein();
+$("h1").fadeToggle();
+$("h1").slideUp();
+$("h1").slideDown();
+$("h1").slideToggle();
+
+#### more grain control
+$("h1").animate({new css rule})
+$("h1").animate({opacity: 0.5}) // ZAG: inside {} only css props that have a number value (can't change a color by name) if a margin goes in "" > "20%"
+* chain animations
+$("h1").slideUp().slideDown().animate({opacity: 0.5})
+
+*removing:
+ie: $("button").remove()
+
 ## Minify js or css files
 www.minify.org
 
+## command line commands doc
+https://www.learnenough.com/command-line-tutorial
 
-## Best Practice - WebSite Concern separation
+# Best Practices - WebSite Concern separation
 * Css -> Styling
 * HTML -> Content / Structure
 * JS -> Behaviour
 
+# Backend - Node JS
+
+## npm packages
+documentation:
+https://www.npmjs.com/
 
 
+
+# Useful links
 ## UI inspiration 2026 08
 https://www.uidesigndaily.com/
 Free open source UI Resources
