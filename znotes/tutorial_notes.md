@@ -65,6 +65,22 @@ function functionName(parameter) {[function instructions][parameter]; return [el
 * call function
 functionName();
 
+### Fat Arrow function
+Arrow functions give you two massive benefits:
+1. Shorter, Cleaner Syntax
+if has only one line you omit {} and return. It implicity returns the value
+```js
+// Traditional
+const add = function(a, b) { return a + b; };
+
+// Arrow function (Ultra-short!)
+const add = (a, b) => a + b; 
+```
+2. They inherit the 'this'
+In traditional functions, the keyword this changes meaning depending on how the function was called, which causes notorious bugs in JavaScript.
+• Arrow functions do not have their own this. They inherit this from the surrounding code (the lexical scope).
+• In UI development (like your Adobe Express Add-on button), this makes it incredibly easy to reference your outer class or components without having to use .bind(this).
+
 ## Control flow statements
 ### if 
 if ( var === value){
