@@ -10,9 +10,13 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript
 https://www.w3schools.com/js/
 https://github.com/rwaldron/idiomatic.js > style convention
 
+## google search help tips
+mdn > feature > looks for doc in mozilla dev network
+ie: mdn parseInt
+ie: javascript convert string to number
+
 ## Mozilla Tutorial
 https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting
-
 
 ## JS Style convention
 https://github.com/rwaldron/idiomatic.js
@@ -247,7 +251,9 @@ function calculator (num1, num2, operator) {
 calculator(3,2,add);
 ```
 
-## debugger
+## debugger - Chrome debugging tools
+https://developers.google.com/web/tools/chrome-devtools/
+
 Simple debugger mode:
 in console:
 debugger; (shift + Enter)
@@ -259,6 +265,25 @@ click on icons in the debugger panel to step forward
 var audio = new Audio('audio_file.mp3');
 audio.play();
 ```
+### debugger breaks in code:
+chrome dev tools > sources > page
+> your_code.js > add breakpoints
+> execute in browser, will auto pause, debbuger controls and panels show up in dev tools
+
+#### tricks var Scope and Watches
+under Scope / Local you can change values in hot to see how it excutes
+unser scope / Watch enter an expression or a var name to see the value it has or produces
+
+#### tricks conditional break point
+right click while inserting a break point
+
+#### tricks Event listener breakpoints
+> mouse > click => this adds a breakpoint to whenever the event happens
+
+#### tricks hot code change in debugger
+you can change the code or var values and see what happens
+> see or google 'local overrides'
+
 
 ## Objects
 ### declare:
