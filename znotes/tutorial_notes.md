@@ -10,6 +10,10 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript
 https://www.w3schools.com/js/
 https://github.com/rwaldron/idiomatic.js > style convention
 
+## Mozilla Tutorial
+https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting
+
+
 ## JS Style convention
 https://github.com/rwaldron/idiomatic.js
 strings " (double quotes) 
@@ -127,9 +131,21 @@ myArray.pop(); > removes the last element of the array
 
 ## DOM
 ### JS script position in html page
+#### defer and async (for external scripts > .js files)
 * js code always has to load after the html elements that it has to interact with
 Otherwise it tries to modify an element that does not exist
 * place just before </body> as general best practice
+  * this will start .js download and then execution once html parsing reaches the <script> tag
+* further control:
+* defer:
+  * place just before </head> add defer or async
+  * defer downloads .js without blocking html parsing, but waits until index.html parsing ends to execute the .js code
+  * defer also guarantees the .js execution order
+* async:
+  *  waits until .js is downloaded and runs (independently of what is going on with html parsing) blocks html parsing once .js starts execution
+  * async does not guarantee .js execution order the .js file that finishes loading first executes first, mind dependencies between .js files
+  * ie: <script src="assets/app.js" async></script>
+  * ie: <script src="assets/app.js" defer></script>
 
 #### JS healt-check
 add just before </body>
