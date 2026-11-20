@@ -108,6 +108,9 @@ while (condition) {
   //do something
 }
 
+### Direct OBJECT or ARRAY == or === COMPARISON does not work.
+Returns false of two identical objects are compared
+
 ### for loops
 for (start; end; change)
 for (i=0; i<2; i++) {
@@ -132,6 +135,20 @@ myArray.length; > 5
 myArray.includes("d"); > true (boolean)
 myArray.push("f"); > add to the end of the array
 myArray.pop(); > removes the last element of the array
+
+## Operator precedence TABLE
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_precedence
+AND has precedence over OR
+&& has precedence over ||
+
+## Falsy and truthy values
+a variable with value = 0 is evaluated as false, otherwise as true (even negatives)
+a string var with '' or null  is evaluated false, otherwise true
+0 > false
+"" > false
+null > false
+[], {}, all objects or arrays > always true (even empty)
+null, undefined, NaN > false
 
 ## DOM
 ### JS script position in html page
