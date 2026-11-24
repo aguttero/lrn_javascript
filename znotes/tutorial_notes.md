@@ -103,25 +103,80 @@ doThis();
 doThat();
 }
 
+### if ternary operator
+const userName = isLogin ? 'Max':null
+  condition: isLogin
+  value if true: 'Max'
+  value if false: null
+
+### Boolean tricks - See session 96
+
+Boolean coercion via double bang operator: !!
+- !!"" or !!1 to convert falsy or thruty into false or true
+
+Default value assignment via OR operator:
+it returns the second value if the first is false or falsy
+if returns the first if is truthy
+- const name = someInput || 'Max';
+
+Return the last value via AND operator (if both true, otherwise returns the first)
+- const name = isLoggedIn && 'Max'
+
+### Switch case 
+internaly performs a === operation (value and type)
+
+switch (ev) {
+  case  LOG_EVENT_PLAYER_ATTACK:
+    do somthing a;
+    break; // if you don't put break, it will evaluate other cases too
+  case OTHER_VALUE_B:
+    do otherthing b;...
+    break;
+  default:
+    do this if no case is matched;
+}
+
 ### while loops
 while (condition) {
   //do something
 }
 
-### Direct OBJECT or ARRAY == or === COMPARISON does not work.
-Returns false of two identical objects are compared
+### do while
+executes body first and then checks the condition:
+let counter = 0;
+do {
+  something;
+  counter++;
+} while (counter < 5);
 
 ### for loops
+1. for loop - Counter
 for (start; end; change)
 for (i=0; i<2; i++) {
   //do something 
 } // i++ runs just before the closing bracket '}'
+
+2. for-of loop
+for every element in the array
+for (const arrayElement of arrayName) {
+console.log(arrayElement);
+}
+
+3. for-in loop
+for every key in an object
+for (const key in obj) {
+console.log(key);
+console.log(obj[key]);
+}
 
 
 ## logical operators
 === is equal to and data type match
 !== is not equal to
 == is equal to and don't care about data type match ( 1 == "1" > true)
+
+### Direct OBJECT or ARRAY == or === COMPARISON does not work.
+Returns false of two identical objects are compared
 
 ## combiners
 && AND
