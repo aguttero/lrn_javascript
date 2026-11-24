@@ -63,6 +63,40 @@ Math.random(); > pseudo random 0 to 1 (not including 1)
 var n = Math.random();
 n = Math.floor(n*6) + 1;
 console.log (n);
+## logical operators
+=== is equal to and data type match
+!== is not equal to
+== is equal to and don't care about data type match ( 1 == "1" > true)
+
+### Direct OBJECT or ARRAY == or === COMPARISON does not work.
+Returns false of two identical objects are compared
+
+## Falsy and truthy values
+a variable with value = 0 is evaluated as false, otherwise as true (even negatives)
+a string var with '' or null  is evaluated false, otherwise true
+0 > false
+"" > false
+null > false
+[], {}, all objects or arrays > always true (even empty)
+null, undefined, NaN > false
+
+## combiners
+&& AND
+|| OR
+! NOT
+
+## arrays
+var myArray = ["a","b","c","d","e"];
+myArray[0]; > a
+myArray.length; > 5
+myArray.includes("d"); > true (boolean)
+myArray.push("f"); > add to the end of the array
+myArray.pop(); > removes the last element of the array
+
+## Operator precedence TABLE
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_precedence
+AND has precedence over OR
+&& has precedence over ||
 
 ## Functions
 * definition / creation
@@ -89,7 +123,7 @@ In traditional functions, the keyword this changes meaning depending on how the 
 • Arrow functions do not have their own this. They inherit this from the surrounding code (the lexical scope).
 • In UI development (like your Adobe Express Add-on button), this makes it incredibly easy to reference your outer class or components without having to use .bind(this).
 
-## Control flow statements
+## Control flow structure
 ### if 
 if ( var === value){
 doThis();
@@ -140,6 +174,7 @@ switch (ev) {
 while (condition) {
   //do something
 }
+use 'break' to exit the loop
 
 ### do while
 executes body first and then checks the condition:
@@ -148,6 +183,7 @@ do {
   something;
   counter++;
 } while (counter < 5);
+use break to exit the loop
 
 ### for loops
 1. for loop - Counter
@@ -169,41 +205,33 @@ console.log(key);
 console.log(obj[key]);
 }
 
+### break and continue
+- break: exits for or while loops in the current iteration
+- continue: skips current loop iteration and moves to the next iteration
 
-## logical operators
-=== is equal to and data type match
-!== is not equal to
-== is equal to and don't care about data type match ( 1 == "1" > true)
+### labeled statement
+to break or continue an outer loop (for or while) from an inner or outer loop. 
+ie:
+let j =0;
+outerWhile: do {
+  console.log('Outer', j);
+  innferFor: for (let k = 0; k < 5; k++) {
+  if (k ===3 ){
+    break outerWhile;
+  }
+  console.log('Inner', k);
+  }
+  j++M
+} while (j<3);
 
-### Direct OBJECT or ARRAY == or === COMPARISON does not work.
-Returns false of two identical objects are compared
 
-## combiners
-&& AND
-|| OR
-! NOT
+### Error Handling - Try / catch - Finally
+Generate and error
+throw error;
 
-## arrays
-var myArray = ["a","b","c","d","e"];
-myArray[0]; > a
-myArray.length; > 5
-myArray.includes("d"); > true (boolean)
-myArray.push("f"); > add to the end of the array
-myArray.pop(); > removes the last element of the array
+try {} catch (error) {error handling fall back logic} finally { always executes no matter if there whas error or not}
 
-## Operator precedence TABLE
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_precedence
-AND has precedence over OR
-&& has precedence over ||
-
-## Falsy and truthy values
-a variable with value = 0 is evaluated as false, otherwise as true (even negatives)
-a string var with '' or null  is evaluated false, otherwise true
-0 > false
-"" > false
-null > false
-[], {}, all objects or arrays > always true (even empty)
-null, undefined, NaN > false
+If you re throw the error, then only the code in finally executes and not the rest of the remaining code in the scrpit
 
 ## DOM
 ### JS script position in html page
