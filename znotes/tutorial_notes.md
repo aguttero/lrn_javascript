@@ -51,6 +51,56 @@ varName.lenght;
 varName.slice(start_postion, end_position (not included));
 varName.toUpperCase(); .toLowerCase(); 
 
+### Block Scope
+let and const have block scope - the block level where they are declared (the {} is the scope)
+var has either global scope or function scope
+
+### Hoisting
+a var declared with var can be used before the declaration line
+Same as with functions
+
+### strict mode
+'use strict';
+
+### Primitive and reference values
+let & const that hold numbers or strings are primitives
+Other objects store a reference (pointer to memomory address)
+
+#### CONST reference can be changed by methods
+because memory addess pointer remains unchanged
+These two examples work ok
+ie:
+const hobbies = ['Sports'];
+hobbies.push('Cooking');
+
+ie:
+const person = {age: 30};
+person.age = 32;
+
+#### spread operator
+To force a copy of a var of array or object 
+ie:
+let person = {age: 30};
+let anotherPerson = {...person };
+let hobbies = ['sailing'];
+let otherhobbies = [...hobies];
+
+Extracts all keys and values from an object or array and adds it to the new object or array
+
+#### Direct OBJECT or ARRAY == or === COMPARISON does not work.
+Returns false of two identical objects are compared
+Because the var stores a memory poiinter, so the logical operator compares memory pointers, not values,
+
+## Garbage collection
+https://v8.dev/blog/free-garbage-collection
+Works automagically in the browser runtime
+Heap memory management
+ie: Set var values to = null when no longer needed
+Beware of "memory leaks"
+- ie: unused objects where yoo still hold references to
+- ie: event listeners create duplicated anonymus functions
+
+
 ## Arithmetic operators
 Modulo operator
 var e = 9 % 6; > reminder of division = 3
@@ -63,13 +113,15 @@ Math.random(); > pseudo random 0 to 1 (not including 1)
 var n = Math.random();
 n = Math.floor(n*6) + 1;
 console.log (n);
+
+
+
+
 ## logical operators
 === is equal to and data type match
 !== is not equal to
 == is equal to and don't care about data type match ( 1 == "1" > true)
 
-### Direct OBJECT or ARRAY == or === COMPARISON does not work.
-Returns false of two identical objects are compared
 
 ## Falsy and truthy values
 a variable with value = 0 is evaluated as false, otherwise as true (even negatives)
@@ -107,6 +159,66 @@ function functionName(parameter) {[function instructions][parameter]; return [el
 * call function
 functionName();
 
+### function inside an object is called method
+ie:
+const person = {
+  // greet method:
+  greet: function fnGreet() {
+    console.log('fnGreet > Hello there!');
+  }
+};
+
+person.greet();
+
+### function declaration/statement vs function expression
+ie declaraion:
+function startGameHandler() {
+  console.log("Game Starting...");
+}
+- function gets hoisted and initialized
+- can be declared anywhere in the .js file
+
+ie statement:
+const start = function startGameHandler() {
+  console.log("Game Starting...");
+};
+- Hoisted but not initialized
+- has to be declared before use in the .js file
+
+### functions are objects and can be assigned to variables
+ie:
+const start = function startGameHandler() {
+  console.log("Game Starting...");
+};
+
+### anonymus function
+useful for functions that are called only once in the script
+ie:
+const start = function () {
+  console.log("Game Starting...");
+};
+
+ie:
+startGameBtn.addEventListener("click", function () {
+  console.log("Game Starting...")
+});
+
+NOTE: does not diplay function name in the error message (for debugging purposes)
+
+option to solve this: add a name and declare it in the same  and unique line where it is used:
+
+ie:
+startGameBtn.addEventListener("click", function starGame () {
+  console.log("Game Starting...")
+});
+
+
+
+
+### callback functions / functions in functions
+### default arguments & rest operator
+### bind()
+
 ### Fat Arrow function
 Arrow functions give you two massive benefits:
 1. Shorter, Cleaner Syntax
@@ -124,6 +236,9 @@ In traditional functions, the keyword this changes meaning depending on how the 
 • In UI development (like your Adobe Express Add-on button), this makes it incredibly easy to reference your outer class or components without having to use .bind(this).
 
 ## Control flow structure
+Control Structures (MDN): https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling
+
+JavaScript Loops (MDN): https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration
 ### if 
 if ( var === value){
 doThis();
